@@ -1,1 +1,300 @@
-# dibine
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAPPY 19th BIRTHDAAAY DIVINEEE</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #ffd6e8, #ffb6d5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+      transition: background 3s ease, filter 2s ease;
+      filter: brightness(0.85);
+    }
+
+    #question {
+      text-align: center;
+      background: #fff0f6;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255, 182, 213, 0.6);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ff8fc7;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff5fa2;
+    }
+
+    #birthday {
+      display: none;
+      text-align: center;
+      color: white;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Cake */
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 220px;
+      margin: 40px auto;
+      animation: bounce 3s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .layer {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 15px;
+      box-shadow: inset 0 -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .layer1 {
+      width: 200px;
+      height: 60px;
+      background: #ffb3d9;
+      bottom: 0;
+    }
+
+    .layer2 {
+      width: 150px;
+      height: 50px;
+      background: #ff99cc;
+      bottom: 60px;
+    }
+
+    .layer3 {
+      width: 100px;
+      height: 40px;
+      background: #ff80bf;
+      bottom: 110px;
+    }
+
+    /* Candles */
+    .candles {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      display: flex;
+      gap: 15px;
+    }
+
+    .candle {
+      width: 12px;
+      height: 35px;
+      background: #ffe6f2;
+      border-radius: 4px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .flame {
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #fff0f6, #ff9acb, #ff5fa2);
+      border-radius: 50%;
+      position: absolute;
+      top: -12px;
+      left: 1px;
+      box-shadow: 0 0 20px 8px rgba(255, 153, 204, 0.8);
+      animation: flicker 0.2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { transform: scale(1); opacity: 0.9; }
+      to { transform: scale(1.3); opacity: 1; }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #fff;
+      text-shadow: 3px 3px 15px rgba(255, 105, 180, 0.6);
+      animation: pop 1.2s ease-in-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #fff0f6;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    #instruction {
+      opacity: 0.9;
+      color: #ffd1e8;
+      font-size: 1em;
+      margin-top: -10px;
+    }
+
+    /* Credits */
+    #credits {
+      margin-top: 25px;
+      font-size: 0.9em;
+      color: #ffe6f2;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .show-message p,
+    .show-message #credits {
+      opacity: 1;
+    }
+
+    /* Confetti */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="question">
+    <h2>open yaw? ge.</h2>
+    <button id="yesBtn">ofc naman</button>
+    <button id="noBtn">yoko hahah</button>
+  </div>
+
+  <div id="birthday">
+    <h1>Happy 19th Birthdayy!!!</h1>
+
+    <div class="cake">
+      <div class="layer layer1"></div>
+      <div class="layer layer2"></div>
+      <div class="layer layer3"></div>
+
+      <div class="candles">
+        <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+        <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+        <div class="candle" onclick="blowCandle(this)"><div class="flame"></div></div>
+      </div>
+    </div>
+
+    <p id="instruction">
+      syempre patayin mo muna flames diba? wish ka muna ah. Then click the flames, isa isa!!
+    </p>
+
+    <p id="message">
+      halooo happy birthdayy!! hoping u enjoy day HAHAHAHAH,
+      so ayonn thankful kay tita na we have a caring fries like u lol,
+    </p>
+
+    <div id="credits">
+      made by Christine Joy Peralta Bautista, ur dearest friend
+    </div>
+  </div>
+
+  <audio id="birthdayMusic" src="d55ae244-6ed5-4663-b66d-9b6687347110.mp3" preload="auto"></audio>
+  <canvas id="confettiCanvas"></canvas>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const question = document.getElementById("question");
+    const birthday = document.getElementById("birthday");
+    const instruction = document.getElementById("instruction");
+    const music = document.getElementById("birthdayMusic");
+
+    const confettiCanvas = document.getElementById("confettiCanvas");
+    const ctx = confettiCanvas.getContext("2d");
+    confettiCanvas.width = innerWidth;
+    confettiCanvas.height = innerHeight;
+
+    let candlesOut = 0;
+    let confettiParticles = [];
+
+    yesBtn.onclick = () => {
+      question.style.display = "none";
+      birthday.style.display = "block";
+      music.play().catch(()=>{});
+    };
+
+    noBtn.onclick = () => {
+      alert("yaw mo? ge ganyan ka naman e:(");
+      location.href = "about:blank";
+    };
+
+    function blowCandle(candle) {
+      const flame = candle.querySelector(".flame");
+      if (!flame || flame.style.display === "none") return;
+
+      flame.style.display = "none";
+      candlesOut++;
+
+      if (candlesOut === 3) {
+        document.body.style.filter = "brightness(1)";
+        document.body.style.background =
+          "linear-gradient(135deg, #ffd6e8, #ff9acb)";
+        instruction.style.opacity = "0";
+        birthday.classList.add("show-message");
+        launchConfetti();
+      }
+    }
+
+    function launchConfetti() {
+      for (let i = 0; i < 200; i++) {
+        confettiParticles.push({
+          x: Math.random() * confettiCanvas.width,
+          y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 0.5 + 0.5,
+          color: `hsl(${Math.random()*360},100%,80%)`
+        });
+      }
+      animateConfetti();
+      setTimeout(()=>confettiParticles=[],7000);
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+      confettiParticles.forEach(p=>{
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x,p.y,p.r,p.r);
+        p.y += p.d * 6;
+        p.x += Math.sin(p.y * 0.01);
+      });
+      if (confettiParticles.length) requestAnimationFrame(animateConfetti);
+    }
+  </script>
+
+</body>
+</html>
